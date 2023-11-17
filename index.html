@@ -202,15 +202,25 @@
 
             <pre><code class="hljs typescript" data-trim data-line-numbers=""><script type="text/template">
               function MyComponent(props) {
+                if (!props.isValid) {
+                  return <span>Invalid</span>;
+                }
 
-                // Only strings and numbers can be rendered directly.
-                // Other values must be mapped.
                 return <div>
                   <span>{props.name}</span>
                   <span>{props.count}</span>
+
+                  {props.items.map((item) => (
+                    <span>{item}</span>
+                  ))}
                 </div>;
               }
             </script></code></pre>
+
+            <p class="fragment">
+              Strings and numbers can be rendered directly. Other
+              values must be mapped.
+            </p>
           </section>
         </section>
 
